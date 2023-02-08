@@ -20,6 +20,13 @@ function PlantPage() {
   //   console.log([plants])
   // }
 
+  function handleSearch(searchName){
+    const newFilter = plants.filter((plant)=>{
+      return plant.name === searchName;
+    })
+    setPlants(newFilter);
+  }
+
   return (
     <main>
       <NewPlantForm 
@@ -27,7 +34,9 @@ function PlantPage() {
         setPlants={setPlants}
         plants={plants}
       />
-      <Search />
+      <Search 
+        handleSearch={handleSearch}
+      />
       <PlantList 
         plants={plants}
       />
